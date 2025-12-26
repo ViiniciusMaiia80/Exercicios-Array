@@ -6,6 +6,7 @@
 
 void gerarNumerosAleatorios(int[]);
 void bubbleSort(int []);
+void verificaDuplicata(int numero[]);
 
 int main(void){
 	int numero[SIZE];
@@ -13,20 +14,8 @@ int main(void){
 
 	gerarNumerosAleatorios(numero);
 	bubbleSort(numero);
-	
-	for(int i=0;i<SIZE;i++){
-		int ehDuplicata=0;
-		for(int j=0;j<i;j++){
-			if(numero[i]==numero[j]){
-				ehDuplicata=1;
-				break;
-			}
-		}
-		if(ehDuplicata==0){
-			printf("%d ", numero[i]);
-		}
-	}
-	
+	verificaDuplicata(numero);
+
 	return 0;
 }
 
@@ -50,4 +39,21 @@ void bubbleSort(int numero[]){
 			}
 		}
 	}while(troca == 1);
+}
+
+void verificaDuplicata(int numero[]){
+	int ehDuplicata;
+	for(int i=0;i<SIZE;i++){
+		ehDuplicata=0;
+		for(int j=0;j<i;j++){
+			if(numero[i]==numero[j]){
+				ehDuplicata=1;
+				break;
+			}
+
+		}
+		if(ehDuplicata==0){
+			printf("%d ", numero[i]);
+		}
+	}
 }
