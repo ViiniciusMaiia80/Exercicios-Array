@@ -21,7 +21,7 @@ int main(void){
 
 void gerarNumerosAleatorios(int numero[]){
 	for(int i=0;i<SIZE;i++){
-		numero[i]= 10+rand()%100;
+		numero[i]= 10+rand()%91;
 	}
 }
 
