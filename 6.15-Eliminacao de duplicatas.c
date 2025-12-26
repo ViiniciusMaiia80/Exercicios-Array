@@ -2,15 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZE 100
+#define SIZE 20
 
+void gerarNumerosAleatorios(int[]);
 int main(void){
 	int numero[SIZE];
 	srand(time(NULL));
 
-	for(int i=0;i<SIZE;i++){
-		numero[i]=1+rand()%25;
-		}
+	gerarNumerosAleatorios(numero);
 	
 	for(int i=0;i<SIZE;i++){
 		int ehDuplicata=0;
@@ -26,4 +25,10 @@ int main(void){
 	}
 	
 	return 0;
+}
+
+void gerarNumerosAleatorios(int numero[]){
+	for(int i=0;i<SIZE;i++){
+		numero[i]= 10+rand()%100;
+	}
 }
