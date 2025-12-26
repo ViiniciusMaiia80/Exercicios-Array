@@ -30,7 +30,7 @@ void bubbleSort(int numero[]){
 	do{
 		troca = 0;
 		int aux;
-		for(int i=0;i<SIZE;i++){
+		for(int i=0;i<SIZE-1;i++){
 			if(numero[i]>numero[i+1]){
 				troca = 1;
 				aux = numero[i];
