@@ -4,56 +4,26 @@
 
 #define SIZE 20
 
-void gerarNumerosAleatorios(int[]);
-void bubbleSort(int []);
-void verificaDuplicata(int numero[]);
-
 int main(void){
-	int numero[SIZE];
+	int duplicado[91]={0}, num;
 	srand(time(NULL));
 
-	gerarNumerosAleatorios(numero);
-	bubbleSort(numero);
-	verificaDuplicata(numero);
-
+	printf("%s", "Digite 20 elementos a seguir(Entre 10 e 100): ");
+	for(int i = 0; i < SIZE;i++){
+		printf("\n%s %d:","Elemento",i+1);
+		scanf("%d", &num);
+		if(num<10 || num>100){
+			printf("Numero fora do intervalo. Digite novamente entre 10 e 100:");
+			i--;
+			continue;
+		}
+		if(duplicado[num-10]==0){
+			printf("%d ", num);
+			duplicado[num-10]=1;
+		}else{
+			printf("%s", "(duplicado)");
+		}
+	}
 	return 0;
 }
 
-void gerarNumerosAleatorios(int numero[]){
-	for(int i=0;i<SIZE;i++){
-		numero[i]= 10+rand()%91;
-	}
-}
-
-void bubbleSort(int numero[]){
-	int troca = 0;
-	do{
-		troca = 0;
-		int aux;
-		for(int i=0;i<SIZE-1;i++){
-			if(numero[i]>numero[i+1]){
-				troca = 1;
-				aux = numero[i];
-				numero[i] = numero[i+1];
-				numero[i+1] = aux;
-			}
-		}
-	}while(troca == 1);
-}
-
-void verificaDuplicata(int numero[]){
-	int ehDuplicata;
-	for(int i=0;i<SIZE;i++){
-		ehDuplicata=0;
-		for(int j=0;j<i;j++){
-			if(numero[i]==numero[j]){
-				ehDuplicata=1;
-				break;
-			}
-
-		}
-		if(ehDuplicata==0){
-			printf("%d ", numero[i]);
-		}
-	}
-}
