@@ -5,11 +5,14 @@
 #define SIZE 20
 
 void gerarNumerosAleatorios(int[]);
+void bubbleSort(int []);
+
 int main(void){
 	int numero[SIZE];
 	srand(time(NULL));
 
 	gerarNumerosAleatorios(numero);
+	bubbleSort(numero);
 	
 	for(int i=0;i<SIZE;i++){
 		int ehDuplicata=0;
@@ -31,4 +34,20 @@ void gerarNumerosAleatorios(int numero[]){
 	for(int i=0;i<SIZE;i++){
 		numero[i]= 10+rand()%100;
 	}
+}
+
+void bubbleSort(int numero[]){
+	int troca = 0;
+	do{
+		troca = 0;
+		int aux;
+		for(int i=0;i<SIZE;i++){
+			if(numero[i]>numero[i+1]){
+				troca = 1;
+				aux = numero[i];
+				numero[i] = numero[i+1];
+				numero[i+1] = aux;
+			}
+		}
+	}while(troca == 1);
 }
